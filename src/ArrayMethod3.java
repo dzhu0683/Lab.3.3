@@ -6,6 +6,7 @@ public class ArrayMethod3
 	public static void main(String[] args) 
 	{
 		String [] test1 = { "apple", "cucumber", "microsoft", "zorro", "banana", "cherry", "mahogany", "oreos", "pinata"};
+		int [] test2 = {2,5,1,7,3,8,21,11,13,43,4};
 		
 		long start = System.nanoTime();
 		String [] mergeResult = mergeSort(test1);
@@ -13,6 +14,13 @@ public class ArrayMethod3
 		long time = end - start;
 		System.out.println("Mergesort test took: " + time + " nanoseconds");
 		System.out.println(Arrays.toString(mergeResult));
+		
+		long start1 = System.nanoTime();
+		quicksort(test2, 0, 10);
+		long end1 = System.nanoTime();
+		long time1 = end1 - start1;
+		System.out.println("Quicksort test took: " + time1 + " nanoseconds");
+		System.out.println(Arrays.toString(test2));
 
 	}
 	
@@ -65,9 +73,13 @@ public class ArrayMethod3
 	
 	public static int partition(int [] list1, int front, int back)
 	{
-		int pivot = list1[front];
-		
-		return 0;
+		int pivot = list1[back];
+		int i = (front - 1);
+		for(int j = front; j < back; j++)
+		{
+			
+		}
+		return i + 1;
 	}
 	
 	public static void quicksort(int [] list1, int front, int back)

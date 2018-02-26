@@ -56,13 +56,13 @@ public class ArrayMethod3
 	         }
 	         k++;
 	    }
-	    while(i < list1.length)
+	    while(i < list1.length)//prevents index out of bound
 	    {
 	    	list3[k] = list1[i];
 	        k++;
 	        i++;
 	    }
-	    while(j < list2.length)
+	    while(j < list2.length)//prevents index out of bound
 	    {
 	    	list3[k] = list2[j];
 	        k++;

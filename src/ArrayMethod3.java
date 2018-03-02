@@ -1,3 +1,5 @@
+//Darren Zhu
+//Period 2
 import java.util.Arrays;
 
 public class ArrayMethod3 
@@ -40,21 +42,21 @@ public class ArrayMethod3
 	
 	public static String[] merge(String[] list1, String[] list2)
 	{
-		String[] list3 = new String[list1.length + list2.length];
-	    int i = 0, j = 0, k = 0;
-	    while (i < list1.length && j < list2.length)
+		String[] list3 = new String[list1.length + list2.length];//Creates a new array with the combine length of the two arrays being merged
+	    int i = 0, j = 0, k = 0;//declare variables
+	    while (i < list1.length && j < list2.length)//run following as long as i < array 1's length and j is < array 2's length
 	    {
-	         if (list1[i].compareTo(list2[j]) <= 0) 
+	         if (list1[i].compareTo(list2[j]) <= 0) // use compareto to find correct letter order if it is <= 0 then it is in correct order
 	         {
-	             list3[k] = list1[i];
+	             list3[k] = list1[i];//fill the new array
 	             i++;
 	         } 
-	         else 
+	         else //if not in correct order that the value in the second array to fill the new array
 	         {
 	             list3[k] = list2[j];
 	             j++;
 	         }
-	         k++;
+	         k++;//index increase on new array
 	    }
 	    while(i < list1.length)//prevents index out of bound
 	    {
@@ -77,8 +79,19 @@ public class ArrayMethod3
 		int i = (front - 1);
 		for(int j = front; j < back; j++)
 		{
-			
+			if(list1[j] <= pivot)
+			{
+				i++;
+				//swaps value at index i with index j
+				int temp = list1[i];
+				list1[i] = list1[j];
+				list1[j] = temp;
+			}
 		}
+		//swap list[i+1] with list1[back]
+		int temp = list1[i + 1];
+		list1[i] = list1[back];
+		list1[back] = temp;
 		return i + 1;
 	}
 	
@@ -86,9 +99,9 @@ public class ArrayMethod3
 	{
 		if(back < front)
 		{
-			int pivotPos = partition(list1, front, back);
+			int pivotPos = partition(list1, front, back); //call partition
 			
-			quicksort(list1, front, pivotPos - 1);
+			quicksort(list1, front, pivotPos - 1); //divides array in half and call quick sort on it
 			quicksort(list1, pivotPos + 1, back);
 		}
 	}

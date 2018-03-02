@@ -9,6 +9,7 @@ public class ArrayMethod3
 	{
 		String [] test1 = { "apple", "cucumber", "microsoft", "zorro", "banana", "cherry", "mahogany", "oreos", "pinata"};
 		int [] test2 = {2,5,1,7,3,8,21,11,13,43,4};
+		int n = test2.length;
 		
 		long start = System.nanoTime();
 		String [] mergeResult = mergeSort(test1);
@@ -18,13 +19,23 @@ public class ArrayMethod3
 		System.out.println(Arrays.toString(mergeResult));
 		
 		long start1 = System.nanoTime();
-		quicksort(test2, 0, 10);
+		quicksort(test2, 0, n-1);
 		long end1 = System.nanoTime();
 		long time1 = end1 - start1;
 		System.out.println("Quicksort test took: " + time1 + " nanoseconds");
-		System.out.println(Arrays.toString(test2));
+        printArray(test2);
 
 	}
+	
+	public static void printArray(int arr[])
+    {
+        int n = arr.length;
+        for (int i=0; i<n; ++i)
+        {
+            System.out.print(arr[i]+" ");
+        }
+        System.out.println();
+    }
 	
 	public static String[] mergeSort(String[] list)
 	{
@@ -90,14 +101,14 @@ public class ArrayMethod3
 		}
 		//swap list[i+1] with list1[back]
 		int temp = list1[i + 1];
-		list1[i] = list1[back];
+		list1[i+1] = list1[back];
 		list1[back] = temp;
 		return i + 1;
 	}
 	
 	public static void quicksort(int [] list1, int front, int back)
 	{
-		if(back < front)
+		if(front < back)
 		{
 			int pivotPos = partition(list1, front, back); //call partition
 			
@@ -105,5 +116,4 @@ public class ArrayMethod3
 			quicksort(list1, pivotPos + 1, back);
 		}
 	}
-
 }
